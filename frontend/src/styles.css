@@ -1,0 +1,337 @@
+:root {
+  --bg: #0f2a2a;              /* era #0f172a (azul escuro) → agora teal escuro */
+  --primary: #2e7d7d;         /* era #1d4ed8 (azul) → agora teal da marca */
+  --primary-light: #00BCD4;   /* teal claro para hovers */
+  --text: #0f172a;
+  --muted: #475569;
+  --white: #ffffff;
+  --light: #f0fafa;           /* era #f8fafc → leve tom teal */
+  --border: #e2e8f0;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: Arial, sans-serif;
+  color: var(--text);
+  background: var(--light);
+}
+
+a { text-decoration: none; color: inherit; }
+
+.container {
+  width: min(1100px, 92%);
+  margin: 0 auto;
+}
+
+/* ========== HEADER ========== */
+.header {
+  background: var(--bg);
+  color: var(--white);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* ✅ LOGO */
+.logo {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+}
+
+.brand p {
+  font-size: 0.85rem;
+  opacity: 0.75;
+  margin-top: 2px;
+  color: var(--white);
+}
+
+.menu-btn {
+  display: none;
+  background: transparent;
+  color: var(--white);
+  border: 1px solid rgba(255,255,255,0.3);
+  padding: 0.7rem 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav a {
+  color: var(--white);
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.nav a:hover {
+  color: var(--primary-light);
+}
+
+/* ========== HERO ========== */
+.hero {
+  background: linear-gradient(135deg, #d0f0f0, #eafafa); /* era azul → teal suave */
+  padding: 4rem 0;
+}
+
+.hero-grid, .about, .contact, .grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.hero-grid {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  align-items: center;
+}
+
+.hero h2, .section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.hero p, .section p {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.badge {
+  display: inline-block;
+  background: #ccf0f0;        /* era #dbeafe (azul) → teal claro */
+  color: var(--primary);
+  padding: 0.4rem 0.75rem;
+  border-radius: 999px;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+/* ========== BOTÕES ========== */
+.btn {
+  display: inline-block;
+  padding: 0.9rem 1.2rem;
+  border-radius: 10px;
+  font-weight: 700;
+  transition: background 0.3s, transform 0.1s;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: var(--white);
+}
+
+.btn-primary:hover {
+  background: var(--primary-light);
+}
+
+.btn-whatsapp {
+  background: #25d366;        /* verde WhatsApp oficial */
+  color: var(--white);
+}
+
+.btn-whatsapp:hover {
+  background: #1ebe5d;
+}
+
+.btn-secondary {
+  background: var(--white);
+  color: var(--primary);
+  border: 1px solid var(--border);
+}
+
+.btn-secondary:hover {
+  border-color: var(--primary);
+}
+
+/* ========== CARDS ========== */
+.hero-card, .card, .info-box {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.4rem;
+  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.06);
+}
+
+.hero-card strong, .plan-card strong {
+  display: block;
+  margin: 0.6rem 0 1rem;
+  color: var(--primary);
+  font-size: 1.2rem;
+}
+
+/* ========== SECTIONS ========== */
+.section {
+  padding: 4rem 0;
+}
+
+.section-alt {
+  background: #eafafa;        /* era #eff6ff (azul) → teal suave */
+}
+
+.section-contact {
+  background: #ccf0f0;        /* era #dbeafe → teal claro */
+}
+
+.grid {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  margin-top: 2rem;
+}
+
+.card ul, .hero-card ul, .plan-card ul {
+  margin-top: 1rem;
+  padding-left: 1.1rem;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.about {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.contact {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  align-items: center;
+}
+
+/* ========== FOOTER ========== */
+.footer {
+  background: var(--bg);
+  color: var(--white);
+  padding: 1.2rem 0;
+  text-align: center;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  .menu-btn {
+    display: inline-block;
+  }
+
+  .nav {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 1rem;
+  }
+
+  .nav-open {
+    display: flex;
+  }
+
+  .hero h2, .section h2 {
+    font-size: 1.6rem;
+  }
+
+  .logo {
+    height: 42px;
+  }
+  /* ========== SERVICE CARDS ========== */
+.section-subtitle {
+  color: var(--muted);
+  margin-top: 0.25rem;
+}
+
+.service-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(46, 125, 125, 0.18);
+  border-color: var(--primary);
+}
+
+.service-icon {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  background: #ccf0f0;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.service-card:hover .service-icon {
+  background: var(--primary);
+  color: var(--white);
+}
+
+.card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: auto;
+  padding-top: 0.6rem;
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+/* ========== SERVICE PAGE ========== */
+.service-page .back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+
+.service-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.service-icon-large {
+  width: 80px;
+  height: 80px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  background: var(--primary);
+  color: var(--white);
+}
+
+.service-description {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.service-page .info-box h3 {
+  color: var(--primary);
+  margin-bottom: 0.75rem;
+}
+
+}

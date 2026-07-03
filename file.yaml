@@ -1,0 +1,8 @@
+services:
+  frontend:
+    build:
+      context: ./frontend
+    container_name: conta-certa-frontend
+    ports:
+      - "3000:80"
+    restart: unless-stopped
