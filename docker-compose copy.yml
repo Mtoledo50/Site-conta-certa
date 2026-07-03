@@ -5,6 +5,9 @@ services:
     container_name: conta-certa-frontend
     ports:
       - "3000:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
 
   backend:
     build:
@@ -12,13 +15,5 @@ services:
     container_name: conta-certa-backend
     ports:
       - "4000:4000"
-
-  cloudflared:
-    image: cloudflare/cloudflared:latest
-    container_name: conta-certa-tunnel
-    command: tunnel run
-    environment:
-      - TUNNEL_TOKEN=${CLOUDFLARE_TUNNEL_TOKEN}
     restart: unless-stopped
-    depends_on:
-    - frontend
+

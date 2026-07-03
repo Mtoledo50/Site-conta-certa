@@ -1,0 +1,238 @@
+/* ============================================
+   PLANS — Portfólio Start / Prime / Black
+   ============================================ */
+
+.plans-section {
+  background: var(--off-white);
+}
+
+.plans-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin: 2.5rem 0 1rem;
+  flex-wrap: wrap;
+}
+
+.tab-btn {
+  background: white;
+  border: 1.5px solid var(--cinza-borda);
+  color: var(--cinza-texto);
+  padding: 0.85rem 1.5rem;
+  border-radius: 999px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.tab-btn:hover {
+  border-color: var(--azul-profundo);
+  color: var(--azul-profundo);
+}
+
+.tab-btn.active {
+  background: var(--azul-profundo);
+  border-color: var(--azul-profundo);
+  color: var(--off-white);
+}
+
+.plans-subtitle {
+  text-align: center;
+  color: var(--cinza-suave);
+  margin-bottom: 2.5rem;
+  font-size: 1rem;
+}
+
+.plans-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.plan-card {
+  background: white;
+  border: 1.5px solid var(--cinza-borda);
+  border-radius: 20px;
+  padding: 2rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.plan-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 32px rgba(30, 58, 95, 0.12);
+}
+
+.plan-card.destaque {
+  border-color: var(--ambar);
+  border-width: 2px;
+  box-shadow: 0 12px 32px rgba(232, 168, 56, 0.15);
+}
+
+.plan-card.destaque:hover {
+  box-shadow: 0 20px 40px rgba(232, 168, 56, 0.25);
+}
+
+.badge-destaque {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--ambar);
+  color: white;
+  padding: 0.4rem 1.2rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.3px;
+}
+
+.plan-header {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--cinza-borda);
+}
+
+.plan-nome {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+  color: var(--azul-profundo);
+}
+
+.plan-nome.start { color: var(--verde-musgo); }
+.plan-nome.prime { color: var(--ambar-escuro); }
+.plan-nome.black { color: var(--azul-profundo); }
+
+.plan-preco {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  margin-bottom: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.preco-valor {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--azul-profundo);
+  line-height: 1;
+}
+
+.preco-info {
+  font-size: 0.9rem;
+  color: var(--cinza-suave);
+  font-family: 'Inter', sans-serif;
+}
+
+.plan-indicado {
+  font-size: 0.9rem;
+  color: var(--cinza-texto);
+  line-height: 1.5;
+  font-style: italic;
+}
+
+.plan-itens {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem;
+  flex-grow: 1;
+}
+
+.plan-itens li {
+  padding: 0.55rem 0 0.55rem 1.8rem;
+  position: relative;
+  color: var(--cinza-texto);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  border-bottom: 1px solid rgba(229, 224, 216, 0.5);
+}
+
+.plan-itens li:last-child {
+  border-bottom: none;
+}
+
+.plan-itens li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  top: 0.55rem;
+  color: var(--verde-musgo);
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.plan-cta {
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+}
+
+/* EXCEDENTES */
+.excedentes-box {
+  background: var(--creme);
+  border-left: 4px solid var(--ambar);
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  margin: 0 auto 3rem;
+  max-width: 700px;
+}
+
+.excedentes-box h4 {
+  font-family: 'Playfair Display', serif;
+  color: var(--azul-profundo);
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.excedentes-box p {
+  color: var(--cinza-texto);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  text-align: left;
+  margin: 0;
+}
+
+/* CTA FINAL */
+.plans-cta-final {
+  text-align: center;
+  padding: 2rem 0 1rem;
+}
+
+.plans-cta-final p {
+  color: var(--cinza-texto);
+  font-size: 1.05rem;
+  margin-bottom: 1.2rem;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  .tab-btn {
+    padding: 0.7rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  .preco-valor {
+    font-size: 1.8rem;
+  }
+
+  .plan-nome {
+    font-size: 1.5rem;
+  }
+
+  .plan-card {
+    padding: 1.5rem;
+  }
+
+  .excedentes-box {
+    padding: 1.2rem 1.5rem;
+  }
+}

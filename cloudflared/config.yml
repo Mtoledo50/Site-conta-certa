@@ -1,0 +1,15 @@
+ingress:
+  # Frontend - domínio raiz
+  - hostname: contacerta.com.br
+    service: http://frontend:80
+  
+  # Frontend - www
+  - hostname: www.contacerta.com.br
+    service: http://frontend:80
+  
+  # Backend - api (opcional)
+  - hostname: api.contacerta.com.br
+    service: http://backend:4000
+  
+  # Regra obrigatória no final (catch-all)
+  - service: http_status:404

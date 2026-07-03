@@ -1,0 +1,47 @@
+/* ============================================
+BOTÃO VOLTAR AO TOPO
+============================================ */
+.voltar-topo-btn {
+  position: fixed;
+  bottom: 100px;
+  right: 24px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--azul-profundo);
+  color: var(--ambar);
+  border: 2px solid var(--ambar);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(30, 58, 95, 0.25);
+  transition: all 0.3s ease;
+  z-index: 997;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+}
+
+.voltar-topo-btn.visivel {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.voltar-topo-btn:hover {
+  background: var(--ambar);
+  color: var(--azul-profundo);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(232, 168, 56, 0.35);
+}
+
+/* RESPONSIVO */
+@media (max-width: 480px) {
+  .voltar-topo-btn {
+    width: 42px;
+    height: 42px;
+    bottom: 88px;
+    right: 16px;
+  }
+}

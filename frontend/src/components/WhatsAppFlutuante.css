@@ -1,0 +1,130 @@
+/* ============================================
+WHATSAPP FLUTUANTE
+============================================ */
+.wpp-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #25d366;
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+  transition: all 0.3s ease;
+  z-index: 999;
+  animation: wpp-pulse 2s infinite;
+}
+
+.wpp-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 8px 28px rgba(37, 211, 102, 0.55);
+}
+
+.wpp-btn-open {
+  background: var(--azul-profundo);
+  box-shadow: 0 6px 20px rgba(30, 58, 95, 0.3);
+  animation: none;
+}
+
+.wpp-btn-open:hover {
+  background: var(--azul-medio);
+}
+
+@keyframes wpp-pulse {
+  0%, 100% {
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+  }
+  50% {
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4),
+                0 0 0 12px rgba(37, 211, 102, 0);
+  }
+}
+
+/* TOOLTIP */
+.wpp-tooltip {
+  position: fixed;
+  bottom: 100px;
+  right: 24px;
+  width: 300px;
+  background: white;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 12px 40px rgba(30, 58, 95, 0.2);
+  z-index: 998;
+  animation: wpp-slide-up 0.3s ease;
+  border: 1px solid var(--cinza-borda);
+}
+
+@keyframes wpp-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.wpp-tooltip-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: transparent;
+  border: none;
+  color: var(--cinza-suave);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.wpp-tooltip-close:hover {
+  background: var(--creme);
+  color: var(--grafite);
+}
+
+.wpp-tooltip-titulo {
+  font-family: 'Playfair Display', serif;
+  color: var(--azul-profundo);
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.wpp-tooltip-texto {
+  color: var(--cinza-texto);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.wpp-tooltip-btn {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 0.9rem;
+}
+
+/* RESPONSIVO */
+@media (max-width: 480px) {
+  .wpp-btn {
+    width: 56px;
+    height: 56px;
+    bottom: 16px;
+    right: 16px;
+  }
+  .wpp-tooltip {
+    width: calc(100vw - 32px);
+    right: 16px;
+    bottom: 88px;
+  }
+}

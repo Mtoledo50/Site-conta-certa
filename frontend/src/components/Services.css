@@ -1,65 +1,95 @@
 .services {
-  padding: 60px 24px;
-  max-width: 1200px;
-  margin: 0 auto;
+  padding: 5rem 0;
+  background: var(--off-white);
 }
 
 .services h2 {
   text-align: center;
-  margin-bottom: 40px;
-  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  font-size: 2.2rem;
+  font-family: 'Playfair Display', serif;
+  color: var(--azul-profundo);
+}
+
+.section-subtitle {
+  text-align: center;
+  color: var(--cinza-suave);
+  margin-bottom: 3rem;
+  font-size: 1.05rem;
 }
 
 .services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 24px;
+  gap: 1.5rem;
 }
 
 .card {
-  display: block;
-  background: #fff;
-  border: 1px solid #e2e8f0;
-  border-radius: 12px;
-  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border: 1px solid var(--cinza-borda);
+  border-radius: 16px;
+  padding: 1.8rem;
   text-decoration: none;
   color: inherit;
   cursor: pointer;
-  transition: transform .2s ease, box-shadow .2s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  box-shadow: 0 4px 20px rgba(30, 58, 95, 0.06);
 }
 
 .card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  transform: translateY(-6px);
+  box-shadow: 0 16px 32px rgba(30, 58, 95, 0.12);
+  border-color: var(--ambar);
 }
 
 .card h3 {
-  margin: 0 0 8px;
+  margin: 0 0 0.5rem;
   font-size: 1.2rem;
+  font-family: 'Playfair Display', serif;
+  color: var(--azul-profundo);
 }
 
 .card p {
-  margin: 0 0 16px;
-  color: #64748b;
+  margin: 0 0 1rem;
+  color: var(--cinza-suave);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  flex-grow: 1;
 }
 
 .card-link {
-  color: #0f766e;
+  color: var(--azul-profundo);
   font-weight: 600;
-  .card-icon {
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+.card:hover .card-link {
+  color: var(--ambar-escuro);
+}
+
+.card-icon {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 56px;
   height: 56px;
-  margin-bottom: 16px;
-  color: #0f766e;
+  margin-bottom: 1rem;
+  border-radius: 14px;
+  background: var(--ambar-claro);
+  color: var(--ambar-escuro);
+  transition: all 0.25s ease;
+}
+
+.card:hover .card-icon {
+  background: var(--ambar);
+  color: white;
 }
 
 .card-icon svg {
-  width: 36px;
-  height: 36px;
-  stroke-width: 1.5; /* deixa o traço fininho, estilo CG Contadores */
-}
-
+  width: 32px;
+  height: 32px;
+  stroke-width: 1.5;
 }

@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom'
 import { ArrowLeft } from 'lucide-react'
 
 export default function ServicePageLayout({ icon: Icon, title, description, items }) {
+  const whatsapp = 'https://wa.me/+5551984383203?text=Olá! Tenho interesse no serviço de ' + encodeURIComponent(title) + '.'
+
   return (
     <section className="section service-page">
       <div className="container">
@@ -30,7 +32,7 @@ export default function ServicePageLayout({ icon: Icon, title, description, item
         <div className="hero-actions">
           <a
             className="btn btn-whatsapp"
-            href="https://wa.me/+555198751285?text=Olá! Tenho interesse no serviço de "
+            href={whatsapp}
             target="_blank"
             rel="noreferrer"
           >

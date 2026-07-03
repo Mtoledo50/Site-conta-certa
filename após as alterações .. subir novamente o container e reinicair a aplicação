@@ -1,0 +1,48 @@
+fiz as alterações localmente.. como envio para o docker
+MyHUB Nitro
+Ótimo, Marcos! Agora é só reconstruir e reiniciar seu container Docker para que as alterações no frontend (ou .env) entrem em vigor. Aqui está o passo a passo ideal para seu cenário:
+
+1. Salve todas as alterações
+Certifique-se de que TODOS os arquivos modificados estejam salvos e salvos dentro da pasta correta do projeto (especialmente dentro de frontend/src, .env, etc).
+
+2. Rebuild do container frontend (recomendado)
+Abra o terminal na raiz do projeto e execute:
+
+bash
+
+
+docker compose up -d --build
+Isso vai:
+
+Rebuildar a imagem do frontend (vai considerar as mudanças feitas no código e .env)
+Reiniciar os serviços no plano de fundo (-d: detached)
+3. (Opcional) Forçar rebuild dos caches
+Se tiver dúvida se Docker está realmente reconstruindo (caso ele “pule” build por cache), use:
+
+bash
+
+
+docker compose build --no-cache
+docker compose up -d
+4. Verifique se está no ar
+Depois, acesse:
+
+http://localhost:5173
+http://192.168.68.102:5173 (caso queira testar na rede)
+Veja se o link do WhatsApp já está atualizado.
+
+5. Dicas rápidas
+Sempre faça rebuild (--build) se mudou código-fonte, pacotes do Node ou arquivos de variáveis (.env) no frontend/backend.
+Só docker compose up -d não recompila a imagem se não mudar Dockerfile nem dependências (só reinicia).
+Se der erro ou o sistema não atualizar:
+
+Limpe o cache do browser (Ctrl+Shift+R)
+Verifique os logs do frontend com:
+bash
+
+
+docker compose logs -f frontend
+Se precisar de uma mensagem de shell pronta para copiar e colar ou o passo-a-passo para algum erro, é só pedir!
+
+
+
