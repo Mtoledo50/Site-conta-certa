@@ -1,18 +1,8 @@
-import wallpaper from '../assets/wallpaper-ondas.png'
-
 export default function Hero() {
   const whatsapp = 'https://wa.me/+5551984383203?text=Olá! Quero um orçamento da Conta Certa.'
 
   return (
-    <section
-      className="hero"
-      style={{
-        backgroundImage: `url(${wallpaper})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-      }}
-    >
+    <section className="hero hero-gradient">
       <div className="container hero-grid">
         <div>
           <span className="badge">👋 Especialistas em MEI e pequenas empresas</span>

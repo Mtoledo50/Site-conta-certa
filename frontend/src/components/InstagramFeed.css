@@ -1,0 +1,103 @@
+.instagram-section {
+  background: linear-gradient(135deg, #fdf3dc 0%, #faf8f5 100%);
+  padding: 4rem 0;
+}
+
+.instagram-section h2 {
+  color: var(--azul-profundo);
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: var(--cinza-suave);
+  margin-bottom: 3rem;
+}
+
+.instagram-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.instagram-post {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border: 2px solid var(--cinza-borda);
+  border-radius: 12px;
+  padding: 2rem 1rem;
+  gap: 1rem;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: var(--grafite);
+}
+
+.instagram-post:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 32px rgba(30, 58, 95, 0.12);
+  border-color: var(--ambar);
+}
+
+.instagram-post svg {
+  color: var(--ambar);
+  transition: transform 0.3s ease;
+}
+
+.instagram-post:hover svg {
+  transform: scale(1.1);
+}
+
+.instagram-post span {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--azul-profundo);
+}
+
+.instagram-link-container {
+  text-align: center;
+}
+
+.instagram-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+}
+
+.instagram-cta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(220, 39, 67, 0.3);
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .instagram-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .instagram-post {
+    padding: 1.5rem 0.5rem;
+  }
+
+  .instagram-post span {
+    font-size: 0.8rem;
+  }
+
+  .instagram-cta {
+    font-size: 1rem;
+    padding: 0.9rem 1.5rem;
+  }
+}

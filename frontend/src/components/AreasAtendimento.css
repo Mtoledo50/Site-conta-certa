@@ -1,0 +1,124 @@
+.areas-section {
+  padding: 4rem 0;
+}
+
+.carousel-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 3rem;
+  overflow: hidden;
+}
+
+.carousel-wrapper {
+  flex: 1;
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease;
+  gap: 1.5rem;
+}
+
+.carousel-card {
+  flex: 0 0 calc(25% - 1.125rem); /* 4 cards visíveis */
+  background: white;
+  border-radius: 12px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.carousel-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.carousel-card .card-icon {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--laranja-claro);
+  color: var(--laranja);
+  border-radius: 50%;
+}
+
+.carousel-card h3 {
+  font-family: 'Playfair Display', serif;
+  color: var(--azul-profundo);
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.carousel-card p {
+  color: var(--cinza-suave);
+  font-size: 0.9rem;
+}
+
+.carousel-btn {
+  background: white;
+  border: 2px solid var(--cinza-borda);
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: var(--azul-profundo);
+  flex-shrink: 0;
+}
+
+.carousel-btn:hover {
+  background: var(--azul-profundo);
+  color: white;
+  border-color: var(--azul-profundo);
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--cinza-borda);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dot.active {
+  background: var(--laranja);
+  width: 30px;
+  border-radius: 5px;
+}
+
+/* Responsivo */
+@media (max-width: 1024px) {
+  .carousel-card {
+    flex: 0 0 calc(33.333% - 1rem); /* 3 cards */
+  }
+}
+
+@media (max-width: 768px) {
+  .carousel-card {
+    flex: 0 0 100%; /* 1 card */
+  }
+
+  .carousel-btn {
+    width: 40px;
+    height: 40px;
+  }
+}

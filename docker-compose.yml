@@ -1,10 +1,21 @@
+
 services:
+  # ═══════════════════════════════════════════════════════════════
+  # SITE CONTA CERTA (existente — NÃO MEXER)
+  # ═══════════════════════════════════════════════════════════════
   frontend:
     build:
       context: ./frontend
     container_name: conta-certa-frontend
     ports:
       - "3000:80"
+    networks:
+      - app-network
+    environment:
+      - VITE_COMPANY_NAME=${VITE_COMPANY_NAME}
+      - VITE_COMPANY_ADDRESS=${VITE_COMPANY_ADDRESS}
+      - VITE_WHATSAPP_NUMBER=${VITE_WHATSAPP_NUMBER}
+      - VITE_WHATSAPP_MESSAGE=${VITE_WHATSAPP_MESSAGE}
 
   backend:
     build:
@@ -12,7 +23,56 @@ services:
     container_name: conta-certa-backend
     ports:
       - "4000:4000"
+    networks:
+      - app-network
+    environment:
+      - DATABASE_URL=${DATABASE_URL}
+      - PORT=4000
 
+  # ═══════════════════════════════════════════════════════════════
+  # 🆕 RADAR CONTA CERTA (novo serviço)
+  # ═══════════════════════════════════════════════════════════════
+  radar-backend:
+    build:
+      context: ./radar-clone/backend
+      dockerfile: Dockerfile
+    container_name: radar-backend
+    environment:
+      # 🆕 ADR-077: Postgres local acessado via host.docker.internal
+      DATABASE_URL: postgresql://postgres:postgres@host.docker.internal:5432/radar_db?schema=public
+      JWT_SECRET: ${RADAR_JWT_SECRET:-radar-clone-super-secret-key-2026-mude-em-producao}
+      JWT_EXPIRATION: 7d
+      PORT: 3001
+      NODE_ENV: production
+      # 🆕 CORS: aceita o domínio de produção + localhost
+      FRONTEND_URL: https://radar.contacerta.com.br,http://localhost:3000,http://localhost:3002
+    ports:
+      - "3003:3001"
+    networks:
+      - app-network
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    restart: unless-stopped
+
+  radar-frontend:
+    build:
+      context: ./radar-clone/frontend
+      dockerfile: Dockerfile
+      args:
+        # 🆕 ADR-077: API URL assada no build (Next.js standalone)
+        NEXT_PUBLIC_API_URL: https://radar-api.contacerta.com.br
+    container_name: radar-frontend
+    ports:
+      - "3002:3000"
+    networks:
+      - app-network
+    depends_on:
+      - radar-backend
+    restart: unless-stopped
+
+  # ═══════════════════════════════════════════════════════════════
+  # TÚNEL CLOUDFLARE (existente — agora roteia Radar também)
+  # ═══════════════════════════════════════════════════════════════
   cloudflared:
     image: cloudflare/cloudflared:latest
     container_name: conta-certa-tunnel
@@ -21,4 +81,16 @@ services:
       - TUNNEL_TOKEN=${CLOUDFLARE_TUNNEL_TOKEN}
     restart: unless-stopped
     depends_on:
-    - frontend
+      - frontend
+      - backend
+      - radar-frontend
+      - radar-backend
+    networks:
+      - app-network
+
+# ═══════════════════════════════════════════════════════════════
+# REDES
+# ═══════════════════════════════════════════════════════════════
+networks:
+  app-network:
+    driver: bridge

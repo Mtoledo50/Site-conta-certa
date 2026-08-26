@@ -21,6 +21,8 @@ import PlanejamentoEstrategico from './pages/PlanejamentoEstrategico'
 import WhatsAppFlutuante from './components/WhatsAppFlutuante'
 import VoltarAoTopo from './components/VoltarAoTopo'
 import PopupCaptura from './components/PopupCaptura'
+import InstagramFeed from './components/InstagramFeed'  // ⬅ adicionar esta linha
+
 
 function Home() {
   return (
@@ -31,6 +33,7 @@ function Home() {
       <About />
       <AreasAtendimento />
       <ProvaSocial /> {/* ✅ Adicionado aqui */}
+      <InstagramFeed /> {/* ✅ ADICIONADO AQUI */}
       <Contact />
       
     </main>

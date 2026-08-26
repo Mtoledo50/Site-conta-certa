@@ -1,15 +1,24 @@
 ingress:
-  # Frontend - domínio raiz
+  # ═══════════════════════════════════════════════════════════════
+  # SITE CONTA CERTA (existente)
+  # ═══════════════════════════════════════════════════════════════
   - hostname: contacerta.com.br
     service: http://frontend:80
   
-  # Frontend - www
   - hostname: www.contacerta.com.br
     service: http://frontend:80
   
-  # Backend - api (opcional)
   - hostname: api.contacerta.com.br
     service: http://backend:4000
+
+  # ═══════════════════════════════════════════════════════════════
+  # 🆕 RADAR CONTA CERTA (novo)
+  # ═══════════════════════════════════════════════════════════════
+  - hostname: radar.contacerta.com.br
+    service: http://radar-frontend:3000
+  
+  - hostname: radar-api.contacerta.com.br
+    service: http://radar-backend:3001
   
   # Regra obrigatória no final (catch-all)
   - service: http_status:404
